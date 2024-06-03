@@ -1,0 +1,336 @@
+[gd_scene load_steps=12 format=3 uid="uid://dl5rd6pf1javq"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_7f3dl"]
+[ext_resource type="Texture2D" uid="uid://dre6qvnxwba2y" path="res://Untitled.png" id="2_fdcsy"]
+[ext_resource type="Texture2D" uid="uid://norkynq155k4" path="res://Sprites/Icons/help.png" id="3_k5hfm"]
+[ext_resource type="Texture2D" uid="uid://bhu85f7aei1t4" path="res://Sprites/Icons/close.png" id="4_156f1"]
+[ext_resource type="Texture2D" uid="uid://cg4jlbomw364r" path="res://Sprites/Background/tutorial.png" id="4_pp30x"]
+[ext_resource type="Texture2D" uid="uid://bfd2gorqlkle7" path="res://Sprites/Icons/1.png" id="6_dh1al"]
+[ext_resource type="Texture2D" uid="uid://dpo4qqb3r80nj" path="res://Sprites/Icons/2.png" id="7_dky7v"]
+[ext_resource type="Texture2D" uid="uid://ps71t77nxk22" path="res://Sprites/Icons/3.png" id="8_o4jeu"]
+[ext_resource type="Texture2D" uid="uid://b03sgj5bf0oiv" path="res://Sprites/Icons/star.png" id="9_a46h1"]
+[ext_resource type="Texture2D" uid="uid://drg8keip1x25p" path="res://License.png" id="10_4d8ew"]
+[ext_resource type="PackedScene" uid="uid://dfv4j45pnhv4q" path="res://Scene/Slider.tscn" id="11_dbe3t"]
+
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("tutorial")]
+script = ExtResource("1_7f3dl")
+tutorial = NodePath("Tutorial")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
+offset_right = 1158.0
+offset_bottom = 659.0
+texture = ExtResource("2_fdcsy")
+expand_mode = 1
+
+[node name="Background2" type="ColorRect" parent="."]
+visible = false
+modulate = Color(0.589096, 0.589096, 0.589096, 1)
+offset_right = 1158.0
+offset_bottom = 659.0
+mouse_filter = 2
+color = Color(0.299547, 0.299547, 0.299547, 1)
+
+[node name="Start" type="Button" parent="."]
+modulate = Color(1, 1, 0, 1)
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 128
+text = "Play"
+
+[node name="buttonHelp" type="Button" parent="."]
+offset_left = 1030.0
+offset_top = 33.0
+offset_right = 1102.0
+offset_bottom = 105.0
+icon = ExtResource("3_k5hfm")
+
+[node name="Label2" type="Label" parent="buttonHelp"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -56.0
+offset_top = 75.0
+offset_right = 117.0
+offset_bottom = 124.0
+text = "Click me 
+to see the instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="buttonHelp"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 75.0
+offset_right = 119.0
+offset_bottom = 124.0
+text = "Click me 
+to see the instructions"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Levels"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 188.0
+offset_right = 160.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 48
+text = "Levels:"
+
+[node name="1" type="Button" parent="Levels"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 84.0
+offset_top = 263.0
+offset_right = 156.0
+offset_bottom = 335.0
+icon = ExtResource("6_dh1al")
+flat = true
+
+[node name="Label" type="Label" parent="Levels/1"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 1.0
+offset_right = 199.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 48
+text = "100%"
+
+[node name="2" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 347.0
+offset_right = 156.0
+offset_bottom = 419.0
+icon = ExtResource("7_dky7v")
+flat = true
+
+[node name="Label" type="Label" parent="Levels/2"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 1.0
+offset_right = 199.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 48
+text = "100%"
+
+[node name="3" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 430.0
+offset_right = 156.0
+offset_bottom = 502.0
+icon = ExtResource("8_o4jeu")
+flat = true
+
+[node name="Label" type="Label" parent="Levels/3"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 1.0
+offset_right = 199.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 48
+text = "100%"
+
+[node name="Rating" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="1" type="Control" parent="Rating"]
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 262.0
+offset_right = 341.0
+offset_bottom = 302.0
+
+[node name="1" type="TextureRect" parent="Rating/1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_a46h1")
+
+[node name="2" type="TextureRect" parent="Rating/1"]
+layout_mode = 0
+offset_left = 78.0
+offset_right = 142.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="3" type="TextureRect" parent="Rating/1"]
+layout_mode = 0
+offset_left = 152.0
+offset_right = 216.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="2" type="Control" parent="Rating"]
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 346.0
+offset_right = 341.0
+offset_bottom = 386.0
+
+[node name="1" type="TextureRect" parent="Rating/2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_a46h1")
+
+[node name="2" type="TextureRect" parent="Rating/2"]
+layout_mode = 0
+offset_left = 78.0
+offset_right = 142.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="3" type="TextureRect" parent="Rating/2"]
+layout_mode = 0
+offset_left = 152.0
+offset_right = 216.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="3" type="Control" parent="Rating"]
+anchors_preset = 0
+offset_left = 301.0
+offset_top = 430.0
+offset_right = 341.0
+offset_bottom = 470.0
+
+[node name="1" type="TextureRect" parent="Rating/3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_a46h1")
+
+[node name="2" type="TextureRect" parent="Rating/3"]
+layout_mode = 0
+offset_left = 78.0
+offset_right = 142.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="3" type="TextureRect" parent="Rating/3"]
+layout_mode = 0
+offset_left = 152.0
+offset_right = 216.0
+offset_bottom = 64.0
+texture = ExtResource("9_a46h1")
+
+[node name="Sounds" parent="." instance=ExtResource("11_dbe3t")]
+position = Vector2(878, 307)
+max = 30
+sliderName = "Sounds"
+sendSignal = NodePath("..")
+
+[node name="Music" parent="." instance=ExtResource("11_dbe3t")]
+position = Vector2(878, 453)
+max = 30
+sliderName = "Music"
+sendSignal = NodePath("..")
+
+[node name="Tutorial" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+layout_mode = 0
+offset_right = 1168.0
+offset_bottom = 673.0
+color = Color(0, 0, 0, 0.752941)
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 132.0
+offset_right = 740.0
+offset_bottom = 529.0
+texture = ExtResource("4_pp30x")
+expand_mode = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Tutorial"]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 133.0
+offset_right = 1084.0
+offset_bottom = 529.0
+color = Color(0.286275, 0.286275, 0.286275, 1)
+
+[node name="Label" type="Label" parent="Tutorial/ColorRect2"]
+layout_mode = 0
+offset_right = 308.0
+offset_bottom = 395.0
+text = "You will be given a white line input which will have 3 states: center, up and down. You will have to draw a line that:
+
+- when white line is centered: stays on the current level
+
+-when white line is above center: linearly gets higher
+
+-when white line is below center: linearly gets lower
+
+Your drawn line then will be judged and your precision will be shown"
+autowrap_mode = 2
+
+[node name="Close" type="Button" parent="Tutorial"]
+layout_mode = 0
+offset_left = 1041.0
+offset_top = 97.0
+offset_right = 1113.0
+offset_bottom = 169.0
+icon = ExtResource("4_156f1")
+flat = true
+
+[node name="License" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="License"]
+layout_mode = 0
+offset_right = 1168.0
+offset_bottom = 673.0
+color = Color(0, 0, 0, 0.752941)
+
+[node name="TextureRect" type="TextureRect" parent="License"]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 30.0
+offset_right = 815.0
+offset_bottom = 646.0
+texture = ExtResource("10_4d8ew")
+expand_mode = 1
+
+[node name="Close" type="Button" parent="License"]
+layout_mode = 0
+offset_left = 775.0
+offset_top = 8.0
+offset_right = 847.0
+offset_bottom = 80.0
+icon = ExtResource("4_156f1")
+flat = true
+
+[connection signal="mouse_entered" from="Start" to="." method="buttonSelect"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="buttonHelp" to="." method="buttonSelect"]
+[connection signal="pressed" from="buttonHelp" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Levels/1" to="." method="buttonSelect"]
+[connection signal="pressed" from="Levels/1" to="." method="_on_1_pressed"]
+[connection signal="mouse_entered" from="Levels/2" to="." method="buttonSelect"]
+[connection signal="pressed" from="Levels/2" to="." method="_on_2_pressed"]
+[connection signal="mouse_entered" from="Levels/3" to="." method="buttonSelect"]
+[connection signal="pressed" from="Levels/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="Tutorial/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="License/Close" to="." method="_on_close_license_pressed"]

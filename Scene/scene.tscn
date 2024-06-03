@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctg8f5v2bdn5a"]
+
+[ext_resource type="Script" path="res://Scripts/scene.gd" id="1_nq4vp"]
+[ext_resource type="AudioStream" uid="uid://b3s01w357oa6g" path="res://Sounds/Music/OscillateAndRepeat.mp3" id="2_t1wfy"]
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_nq4vp")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t1wfy")
+autoplay = true
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

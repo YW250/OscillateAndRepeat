@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://dubyugfb6uvhv"]
+
+[ext_resource type="Script" path="res://Scripts/Line/Line.gd" id="1_imivm"]
+[ext_resource type="Texture2D" uid="uid://bqoxn33stloue" path="res://Sprites/Background/Osc.jpg" id="2_k6p2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5qhk"]
+size = Vector2(1164, 350)
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("mainLine", "testLine", "testLine2", "userLine", "Answer", "buttonReplay", "buttonExit")]
+script = ExtResource("1_imivm")
+mainLine = NodePath("ExampleLine")
+testLine = NodePath("PerfectLine")
+testLine2 = NodePath("Test2")
+userLine = NodePath("UserInput/InputLine")
+Answer = NodePath("Answer")
+buttonReplay = NodePath("Replay")
+buttonExit = NodePath("exit")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -92.0
+offset_top = -131.0
+offset_right = 1245.0
+offset_bottom = 734.0
+mouse_filter = 2
+texture = ExtResource("2_k6p2r")
+expand_mode = 1
+
+[node name="ExampleLine" type="Line2D" parent="."]
+position = Vector2(71, 147)
+points = PackedVector2Array(0, 0, 47, 0, 49, -63)
+
+[node name="PerfectLine" type="Line2D" parent="."]
+position = Vector2(71, 481)
+points = PackedVector2Array(0, 0)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Test2" type="Line2D" parent="."]
+visible = false
+position = Vector2(71, 545)
+points = PackedVector2Array(0, 0)
+default_color = Color(1, 0, 0.701961, 1)
+
+[node name="UserInput" type="Node2D" parent="."]
+
+[node name="InputLine" type="Line2D" parent="UserInput"]
+position = Vector2(71, 481)
+points = PackedVector2Array(0, 0)
+default_color = Color(0.694118, 0.596078, 0, 1)
+
+[node name="drawZone" type="Area2D" parent="UserInput"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UserInput/drawZone"]
+position = Vector2(572, 473)
+shape = SubResource("RectangleShape2D_y5qhk")
+
+[node name="Answer" type="Label" parent="."]
+offset_left = 371.0
+offset_top = 286.0
+offset_right = 689.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 64
+
+[node name="Replay" type="Button" parent="."]
+offset_left = 463.0
+offset_top = 367.0
+offset_right = 574.0
+offset_bottom = 420.0
+theme_override_font_sizes/font_size = 32
+text = "Replay"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 586.0
+offset_top = 368.0
+offset_right = 652.0
+offset_bottom = 421.0
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[connection signal="mouse_entered" from="UserInput/drawZone" to="." method="_on_draw_zone_mouse_entered"]
+[connection signal="mouse_exited" from="UserInput/drawZone" to="." method="_on_draw_zone_mouse_exited"]
+[connection signal="pressed" from="Replay" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
