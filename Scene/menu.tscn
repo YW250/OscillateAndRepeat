@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dl5rd6pf1javq"]
+[gd_scene load_steps=11 format=3 uid="uid://dl5rd6pf1javq"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_7f3dl"]
-[ext_resource type="Texture2D" uid="uid://dre6qvnxwba2y" path="res://Untitled.png" id="2_fdcsy"]
 [ext_resource type="Texture2D" uid="uid://norkynq155k4" path="res://Sprites/Icons/help.png" id="3_k5hfm"]
 [ext_resource type="Texture2D" uid="uid://bhu85f7aei1t4" path="res://Sprites/Icons/close.png" id="4_156f1"]
 [ext_resource type="Texture2D" uid="uid://cg4jlbomw364r" path="res://Sprites/Background/tutorial.png" id="4_pp30x"]
@@ -16,15 +15,7 @@
 script = ExtResource("1_7f3dl")
 tutorial = NodePath("Tutorial")
 
-[node name="Background" type="TextureRect" parent="."]
-modulate = Color(0.589096, 0.589096, 0.589096, 1)
-offset_right = 1158.0
-offset_bottom = 659.0
-texture = ExtResource("2_fdcsy")
-expand_mode = 1
-
 [node name="Background2" type="ColorRect" parent="."]
-visible = false
 modulate = Color(0.589096, 0.589096, 0.589096, 1)
 offset_right = 1158.0
 offset_bottom = 659.0
@@ -52,8 +43,7 @@ offset_left = -56.0
 offset_top = 75.0
 offset_right = 117.0
 offset_bottom = 124.0
-text = "Click me 
-to see the instructions"
+text = "Показати інструкції"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -63,8 +53,7 @@ offset_left = -54.0
 offset_top = 75.0
 offset_right = 119.0
 offset_bottom = 124.0
-text = "Click me 
-to see the instructions"
+text = "Показати інструкції"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -81,7 +70,7 @@ offset_top = 188.0
 offset_right = 160.0
 offset_bottom = 255.0
 theme_override_font_sizes/font_size = 48
-text = "Levels:"
+text = "Рівні:"
 
 [node name="1" type="Button" parent="Levels"]
 modulate = Color(1, 1, 0, 1)
@@ -228,13 +217,13 @@ texture = ExtResource("9_a46h1")
 [node name="Sounds" parent="." instance=ExtResource("11_dbe3t")]
 position = Vector2(878, 307)
 max = 30
-sliderName = "Sounds"
+sliderName = "Звуки"
 sendSignal = NodePath("..")
 
 [node name="Music" parent="." instance=ExtResource("11_dbe3t")]
 position = Vector2(878, 453)
 max = 30
-sliderName = "Music"
+sliderName = "Музика"
 sendSignal = NodePath("..")
 
 [node name="Tutorial" type="Control" parent="."]
@@ -271,15 +260,12 @@ color = Color(0.286275, 0.286275, 0.286275, 1)
 layout_mode = 0
 offset_right = 308.0
 offset_bottom = 395.0
-text = "You will be given a white line input which will have 3 states: center, up and down. You will have to draw a line that:
+text = "Вам буде надано білу лінію введення, яка матиме 3 стани: по центру, вгорі та внизу. Ви повинні намалювати лінію, яка:
+- коли біла лінія розміщена по центру: залишається на поточному рівні
+- коли біла лінія вище центру: лінійно стає вище
+- коли біла лінія нижче центру: лінійно стає нижче
 
-- when white line is centered: stays on the current level
-
--when white line is above center: linearly gets higher
-
--when white line is below center: linearly gets lower
-
-Your drawn line then will be judged and your precision will be shown"
+В кінці буде оцінено вашу намальовану лінію та показано вашу точність"
 autowrap_mode = 2
 
 [node name="Close" type="Button" parent="Tutorial"]
